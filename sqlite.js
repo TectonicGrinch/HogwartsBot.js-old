@@ -1,1 +1,1 @@
-module.exports = ('./node_modules/sqlite);
+module.exports = ('./node_modules/sqlite');

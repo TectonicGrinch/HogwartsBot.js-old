@@ -15,15 +15,21 @@ module.exports = class darktimes extends commando.Command {
 		});
 	}
 run(message) {
-    if(message.member.roles.find("name", "Pheonix")){
-
-        return message.say('These are dark times. . .', {files: ["./resources/videos/darktimes.mp4"]});
+	var darktimesRoles = [
+        'Dev',
+        'Renowned Wizard',
+        'Pheonix'
+    ]
+    var hasRole = false;
+    darktimesRoles.forEach(findrole =>{
+        if(message.member.roles.cache.some(role => role.name === findrole)) hasRole = true; //if user has role, sets bool to true
+	})
+	if(hasRole === true){
+    return message.say('These are dark times. . .', {files: ["./resources/videos/darktimes.mp4"]});
+	
     }else{
-        if(message.member.roles.find("name", "Renowned Wizard")){
-        return message.say('These are dark times. . .', {files: ["./resources/videos/darktimes.mp4"]});
-    }else{
-
-  return message.say('*Patreon restricted.*');
+		return message.say('You are not a patreon')
+ 
 
 
 
@@ -35,4 +41,3 @@ run(message) {
     
 }
 
-};

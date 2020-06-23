@@ -1,6 +1,6 @@
 const commando = require ('discord.js-commando')
 const db = require('../../database.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class housepoints extends commando.Command {
     constructor(client) {
@@ -19,7 +19,7 @@ class housepoints extends commando.Command {
         }
         //get a list of all teams
         const teams = await db.get_all_teams();
-        const embed = new RichEmbed();
+        const embed = new MessageEmbed();
         embed.title = `House Points:`;
         embed.description = "";
         embed.color = 0x3ca1c9;

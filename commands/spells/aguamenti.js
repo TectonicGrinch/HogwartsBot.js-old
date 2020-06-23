@@ -19,12 +19,15 @@ module.exports = class aguamenti extends commando.Command {
 run(message) {
 		const args = message.content.split(" ");
 		args.shift();
-	
+		var mention = message.mentions.users.first()
 		const subject = args[0];
+        
 		
 		if (!subject) {
-			return message.say("*you wand projects a stream of water*")
-		} else if (subject === "cup") {
+			return message.say(`*you wand projects a stream of water*`)
+		} else if (subject === mention) {
+			return message.say(`*Your wand projects a stream of water at ${mention} and they are now soaked*`)
+        } else if (subject === "cup") {
 			return message.say("*you fill a cup full of water with aguamenti.* :cup_with_straw: ");
 		} else if (subject === "bowl") {
 			return message.say("*you fill a bowl full of water with aguamenti.*");
@@ -54,6 +57,7 @@ run(message) {
 			}else{
 			return message.say("**This spell is too powerful for you.**")
 			}
+
 
 
 		

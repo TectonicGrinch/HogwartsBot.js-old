@@ -6,7 +6,7 @@ constructor(client) {
        name: 'roll',
        group: 'basic',
        memberName: 'roll',
-       description: 'Rolls a die',
+       description: 'Rolls a 100 sided die',
      });
 }
 async run(message, args) {

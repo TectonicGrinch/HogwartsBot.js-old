@@ -16,7 +16,7 @@ module.exports = class gryffindormotto extends commando.Command {
 	}
 
 	run(message) {
-    if(message.member.roles.find("name", "Gryffindor")){
+    if(message.member.roles.cache.find("name", "Gryffindor")){
     return message.say('*Their daring, nerve and chivalry set Gryffindors apart*', {files: ["./resources/emotes/gryffindor.png"]});
       }else{
     return message.say('*Incorrect House!*');

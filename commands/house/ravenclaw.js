@@ -15,7 +15,7 @@ module.exports = class ravenclawmotto extends commando.Command {
 		});
 	}
 run(message) {
-    if(message.member.roles.find("name", "Ravenclaw")){
+    if(message.member.roles.cache.find("name", "Ravenclaw")){
     return message.say('*Wit beyond measure is mans greatest treasure*', {files: ["./resources/emotes/ravenclaw.png"]});
       }else{
     return message.say('*Incorrect House!*');

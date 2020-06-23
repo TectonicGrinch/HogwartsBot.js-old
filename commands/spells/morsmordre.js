@@ -7,20 +7,35 @@ module.exports = class morsmordre extends commando.Command {
 			aliases: ['morsem','morsemor'],
 			group: 'spells',
 			memberName: 'morsmordre',
-			description: 'Make the sky above bare The Dark Lords mark. **Death Eater Restricted**',
+			description: 'Make the sky above bare The Dark Lords mark. **Patreon**',
 			throttling: {
 				usages: 1,
 				duration: 30,
 			},
 		});
 	}
-run(message) {
-    if(message.member.roles.find("name", "Death Eater")){
+async run(message) {
+	var morsmordreRoles = [
+        'Dev',
+        'Renowned Wizard',
+        'Pheonix',
+        'Moderator'
+    ]
+    var hasRole = false;
+    morsmordreRoles.forEach(findrole =>{
+        if(message.member.roles.cache.some(role => role.name === findrole)) hasRole = true; //if user has role, sets bool to true
+    })
 
-    return message.say('*You mark the sky with the presence of The Dark Lord* ', {files: ["./resources/gifs/morsmordre.gif"] });
-}else{
-    return message.say('*Death Eater restricted.*');
-}
+    if(hasRole === true){
+		message.say("*You mark the sky with The Dark Lord's presence.*", {files: ['./resources/gifs/morsmordre.gif']})
+        //code when has role
+    }
+    else{
+		//code when has no role
+		message.say('You are not powerful enough for this spell.')
+
+    }
+
 
 
 

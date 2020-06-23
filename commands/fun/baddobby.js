@@ -15,7 +15,8 @@ module.exports = class baddobby extends commando.Command {
 		});
 	}
 run(message) {
-	return message.say('**Bad Dobby!**', {files: ["./resources/gifs/baddobby.gif"]});
+	var mention = message.mentions.users.first()
+	return message.say(`**You is a Bad Dobby!** ${mention|| ""}`, {files: ["./resources/gifs/baddobby.gif"]});
 
 
 }

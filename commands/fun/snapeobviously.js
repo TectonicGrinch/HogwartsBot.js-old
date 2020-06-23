@@ -7,11 +7,23 @@ module.exports = class snapeobviously extends commando.Command {
 			aliases: ['snapeo','obviously'],
 			group: 'fun',
 			memberName: 'snapeobviously',
-			description: 'obviously Year 5 command',
+			description: 'Obviously. . . **Year 5** command',
 		});
 	}
 run(message) {
-	if(message.member.roles.find("name", "year5")){
+	
+	var snapeobviouslyRoles = [
+        'Dev',
+        'Yr5',
+        'Yr6',
+        'Yr7'
+    ]
+	var hasRole = false;
+    snapeobviouslyRoles.forEach(findrole =>{
+        if(message.member.roles.cache.some(role => role.name === findrole)) hasRole = true; //if user has role, sets bool to true
+    })
+
+    if(hasRole === true){
     return message.say('** Obviously...**', {files: ["./resources/gifs/snapeobviously.gif"]});
       }else{
     return message.say('**Incorrect Year!*');

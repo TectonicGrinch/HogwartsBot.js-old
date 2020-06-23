@@ -4,6 +4,13 @@ const Canvas = require('canvas');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const Discord = require('discord.js.old');
+/*
+const ReactionRole = require("reaction-role");
+const reactionRole = new ReactionRole("NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58");
+*/
+ 
+ 
+
 const client = new commando.Client({
 	owner: '184191493919997952',
 	commandPrefix: '>',
@@ -11,7 +18,8 @@ const client = new commando.Client({
 });
 
 client.login( 'NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58' ).token;
-
+const fs = require('fs');
+const images = require("./images.js");
 client
 	.on('error', console.error)
 	.on('warn', console.warn)
@@ -50,6 +58,69 @@ client
 			${enabled ? 'enabled' : 'disabled'}
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
+	});
+	client.on('message', async msg => {
+		if(!msg.member || !msg || !msg.guild){
+			return;
+		}
+		//console.log(msg.member.user.username)
+		let joined = new Date(msg.member.joinedAt);
+		let now = new Date();
+		let interval = now - joined; //in milliseconds
+		//console.log(interval);
+		let weeks = Math.floor(interval / (7 * 24 * 60 * 60 * 1000));//divided bt one week in ms to see how many weeks
+		
+		let role = "";
+		//get the role they deserve
+		if(weeks >= 14)
+		{
+			role = "Yr7";
+		}
+		else if(weeks >= 12)
+		{
+			role = "Yr6";
+		}
+		else if(weeks >= 8)
+		{
+			role = "Yr5";
+		}
+		else if(weeks >= 6)
+		{
+			role = "Yr4";
+		}
+		else if(weeks >= 4)
+		{
+			role = "Yr3";
+		}
+		else if(weeks >= 2)
+		{
+			role = "Yr2";
+		}
+		else
+		{
+			role = "Yr1";
+		}
+		//console.log(msg.guild.roles)
+		if(!msg.guild.roles.cache.find(x => x.name == role))
+		{
+			//role doesn't exist - create it
+			msg.guild.roles.create({
+				name: role,
+				
+			}).then(r => msg.member.roles.add(r));
+		}
+		else
+		{
+			//check if the user already has the role
+			if(!msg.member.roles.cache.find(x => x.name == role))
+			{
+				let r = msg.guild.roles.cache.find(x => x.name == role);
+				if(r)
+					msg.member.roles.add(r);
+			}
+			
+		}
+
 	});
 	client.registry
 .registerGroups([
@@ -91,22 +162,20 @@ client
 
 		
 	client.on("guildMemberAdd", async (member) => {
-		const canvas = Canvas.createCanvas(492, 640);
-		const ctx = canvas.getContext('2d');
-	
-		// Since the image takes time to load, you should await it
-		const background = await Canvas.loadImage('./resources/pictures/acceptanceletter.jpg');
-		// This uses the canvas dimensions to stretch the image onto the entire canvas
-		ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-		ctx.font = '28px sans-serif';
-		ctx.fillStyle = '#ffffff';
-		ctx.fillText(`${member.displayName} Welcome to the server!`, canvas.width / 2.5, canvas.height / 1.8);
-		// Use helpful Attachment class structure to process the file for you
-		const attachment = new Discord.MessageAttachment(canvas.toBuffer(), './resources/pictures/acceptanceletter.png');
+		let letter = await images.join_scroll(member.user.username);
+		member.createDM();
+		await member.send({files: [
+			letter
+		]});
+		//delete the file to save space
+		await fs.unlinkSync(letter);
+		//const attachment = new Discord.MessageAttachment(canvas.toBuffer(), './resources/pictures/acceptanceletter.png');
 	
 		var wtl = Math.floor(Math.random() * welcometext.length);
-		  member.send("Welcome to CK2 Wizarding World\n here you may get all your Harry Potter CK2 needs and maybe some fun along the way ;) \n Here are some rules that are enforced on the server. \n -No Cursing \n -No Spamming \n -No Advertising \n -No Discrimination \n -No Racism \n -No Sexism \n -No Being Rude \n -No Trolling \n Overall if you are here for fun you will get fun if you are here to Troll you will be treated as such GIT UNDAH YA BRIDGE :bridge_at_night: jokes aside just don't be a Jerk :).");
-		  client.channels.get('711633590445670421').send(' ' + welcometext[wtl])
+		member.send("Welcome to CK2 Wizarding World\n here you may get all your Harry Potter CK2 needs and maybe some fun along the way ;) \n Here are some rules that are enforced on the server. \n -No Cursing \n -No Spamming \n -No Advertising \n -No Discrimination \n -No Racism \n -No Sexism \n -No Being Rude \n -No Trolling \n Overall if you are here for fun you will get fun if you are here to Troll you will be treated as such GIT UNDAH YA BRIDGE :bridge_at_night: jokes aside just don't be a Jerk :).");
+		//618270218849878056 CKII welcome channel ID
+		//711633590445670421 test server welcome id
+		guild.channels.get('711633590445670421').send(' ' + welcometext[wtl])
 
 
     
@@ -114,4 +183,76 @@ client
 
 
 
+
+
 	//client.on("snowflake(id)")
+
+	//blacklist system
+	client.on('message', async message => {
+
+
+  //blacklisted words may god have mercy on my soul. . .
+  let blacklisted = [
+	  'fuck',
+	  'shit',
+	  'bitch',
+	  'whore',
+	  'cunt',
+	  'faggot',
+	  'tits',
+	  'honky',
+	  'dyke',
+	  'penis',
+	  'pussy',
+	  'vagina',
+	  'nigger',
+	  'negro',
+	  'nigga',
+	  'n i g g e r',
+	  'n i g g a',
+	  'f u c k',
+	  'b i t c h',
+	  's h i t',
+	  'c u n t',
+	  'titties',
+	  'tities',
+	  'w h o r e',
+
+] 
+
+  let foundInText = false;
+  for (var i in blacklisted) { // loops through the blacklisted list
+    if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+  }
+  // checks casesensitive words
+
+  //deletes and responds
+    if (foundInText) {
+
+      message.delete();
+     return message.reply('Mind your language, WARNING')
+  }
+});
+/*client.on('messageReactionAdd', async(reaction, user) => {
+	let testRole = message.guild.roles.cache.find(role => role.name === 'test1');
+
+	if(message.id === "724134531652649000") {
+	 if(emoji.name === "➡️") {
+
+
+		member.roles.add(testRole);
+	  }
+	}
+	}  
+);*/
+
+/*
+//reaction module
+let option1 = reactionRole.createOption("gryffindor:724204856385994822", "709348559052603423");
+let option2 = reactionRole.createOption("slytherin:724204884769112114", "707867871786827776");
+
+
+reactionRole.createMessage("724207378085576704", "709100684653494303", true, option1, option2);
+
+reactionRole.init();
+*/

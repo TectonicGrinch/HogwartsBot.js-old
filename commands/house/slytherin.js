@@ -15,7 +15,7 @@ module.exports = class slytherinmotto extends commando.Command {
 		});
 	}
 run(message) {
-    if(message.member.roles.find("name", "Slytherin")){
+    if(message.member.roles.cache.find("name", "Slytherin")){
     return message.say('*Slytherin will help you on your way to greatness*', {files: ["./resources/emotes/slytherin.png"]});
       }else{
     return message.say('*Incorrect House!*');
