@@ -4,20 +4,17 @@ const Canvas = require('canvas');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const Discord = require('discord.js.old');
-/*
-const ReactionRole = require("reaction-role");
-const reactionRole = new ReactionRole("NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58");
-*/
+
  
  
 
 const client = new commando.Client({
-	owner: '184191493919997952',
+	owner: 'process.env.ownerId',
 	commandPrefix: '>',
-	invite: 'https://discord.gg/YB8fmwe'
+	invite: 'https://discord.gg/YB8fmw'
 });
 
-client.login( 'NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58' ).token;
+client.login( 'process.env.TOKEN' ).token;
 const fs = require('fs');
 const images = require("./images.js");
 client
