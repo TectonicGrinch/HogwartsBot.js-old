@@ -8,7 +8,7 @@ constructor(client) {
        name: 'tarantallegra',
        group: 'spells',
        memberName: 'tarantallegra',
-       description: 'disarm a target **Moderator Spell**',
+       description: 'Force a target to dance. **Moderator Spell**',
      });
 }
 async run(message, args) {

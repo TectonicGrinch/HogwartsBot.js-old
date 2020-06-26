@@ -1,11 +1,11 @@
 //repelomuggletum
 const commando = require ('discord.js-commando')
-module.exports = class repelomuggletum extends commando.Command {
+module.exports = class repellomuggletum extends commando.Command {
 	constructor(client) {
 		super(client, {
-			name: 'repelomuggletum',
+			name: 'repellomuggletum',
 			group: 'spells',
-			memberName: 'repelomuggletum',
+			memberName: 'repellomuggletum',
             description: 'This spell can be used to create an area that muggles cant see famously used on Hogwarts **Year 2 Spell**',
         
 			throttling: {
@@ -32,7 +32,8 @@ run(message) {
         if(message.member.roles.cache.some(role => role.name === findrole)) hasRole = true; //if user has role, sets bool to true
     })
     if(hasRole === true){
-message.reply('Creates an invisble barrier to protect from **muggles**.')
+        var mention = message.mentions.users.first()
+message.reply(`Creates an invisble barrier to protect from ${mention || '**muggles**.'}`)
     }else{
         message.reply('This spell is too powerful for you.')
 

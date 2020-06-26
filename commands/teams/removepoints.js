@@ -11,11 +11,18 @@ class removepoints extends commando.Command {
         });
     }
     async run(message, args) {
-        if(!message.member.hasPermission('ADMINISTRATOR'))
-{
-return message.channel.send('you must be an administrator to use this command');
-}
-        
+        var removepointsRoles = [
+            'Dev',
+            'Bot Dev',
+            'Moderator',
+            'Professor'
+        ]
+        var hasRole = false;
+        removepointsRoles.forEach(findrole =>{
+            if(message.member.roles.cache.some(role => role.name === findrole)) hasRole = true; //if user has role, sets bool to true
+        })
+    
+        if(hasRole === true){
         let teamname = args.split(' ')[0];
         let points = parseInt(args.split(' ')[1]);
         //check if teamname missing
@@ -44,7 +51,7 @@ return message.channel.send('you must be an administrator to use this command');
         {
             //channel set -- update the channel name to display points for the team
             let guild = message.guild;
-            let channel = guild.channels.get(channel_id);
+            let channel = guild.channels.cache.get(channel_id);
             if(channel)
             {
                 channel.setName(`${teamname} - ${new_points} points`);
@@ -57,7 +64,11 @@ return message.channel.send('you must be an administrator to use this command');
         }
 
         return message.channel.send(`\`${points}\` points removed from \`${teamname}\``);
+        }else{
+            message.say('Incorrect Role')
+
+        }
+
     }
-  
 }
 module.exports = removepoints;

@@ -7,7 +7,7 @@ module.exports = class snapeslap extends commando.Command {
 			aliases: ['snapesl'],
 			group: 'fun',
 			memberName: 'snapeslap',
-			description: 'get snape slaped',
+			description: 'get snape slaped **Year 6**',
 			throttling: {
 				usages: 1,
 				duration: 30,
@@ -18,7 +18,8 @@ run(message) {
 	var snapeslapRoles = [
 		'Dev',
 		'Bot Dev',
-        'Yr7'
+		'Yr7',
+		'Yr6'
     ]
     var hasRole = false;
     snapeslapRoles.forEach(findrole =>{

@@ -1,4 +1,6 @@
 const commando = require ('discord.js-commando')
+const {MessageMentions} = require("discord.js");
+
 
 module.exports = class aguamenti extends commando.Command {
 	constructor(client) {
@@ -21,12 +23,12 @@ run(message) {
 		args.shift();
 		var mention = message.mentions.users.first()
 		const subject = args[0];
-        
+		const regex = /<@&(\d{17,19})>/g;
 		
 		if (!subject) {
 			return message.say(`*you wand projects a stream of water*`)
-		} else if (subject === mention) {
-			return message.say(`*Your wand projects a stream of water at ${mention} and they are now soaked*`)
+		} else if(regex.test(subject)) {
+			return message.say(`*Your wand projects a stream of water at ${MessageMentions} and they are now soaked*`)
         } else if (subject === "cup") {
 			return message.say("*you fill a cup full of water with aguamenti.* :cup_with_straw: ");
 		} else if (subject === "bowl") {

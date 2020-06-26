@@ -10,11 +10,11 @@ const Discord = require('discord.js.old');
 
 const client = new commando.Client({
 	owner: '184191493919997952',
-	commandPrefix: '>',
+	commandPrefix: '<',
 	invite: 'https://discord.gg/YB8fmwe'
 });
 
-client.login( 'NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58' ).token;
+client.login( 'NzI1MzAwOTU1MjU5NjAxMDI3.XvMvSA.UQzCFafGEXo9KolQWm9mlQCRP0c' ).token;
 const fs = require('fs');
 const images = require("./images.js");
 client
@@ -132,6 +132,7 @@ client
 	['house', 'House'],
 	['spells', 'Spells'],
 	['teams', 'Teams'],
+	['werewolf', 'Werewolf']
 ])
 	.registerDefaults()
 	.registerTypesIn(path.join(__dirname, 'types'))
@@ -172,7 +173,7 @@ client
 		member.send("Welcome to CK2 Wizarding World\n here you may get all your Harry Potter CK2 needs and maybe some fun along the way ;) \n Here are some rules that are enforced on the server. \n -No Cursing \n -No Spamming \n -No Advertising \n -No Discrimination \n -No Racism \n -No Sexism \n -No Being Rude \n -No Trolling \n Overall if you are here for fun you will get fun if you are here to Troll you will be treated as such GIT UNDAH YA BRIDGE :bridge_at_night: jokes aside just don't be a Jerk :).");
 		//618270218849878056 CKII welcome channel ID
 		//711633590445670421 test server welcome id
-		guild.channels.get('711633590445670421').send(' ' + welcometext[wtl])
+		guild.channels.cache.get('618270218849878056').send(' ', welcometext[wtl])
 
 
     

@@ -3,7 +3,7 @@ const commando = require ('discord.js-commando')
 module.exports = class piertotumlocomotor extends commando.Command {
 	constructor(client) {
 		super(client, {
-			name: 'piertotum locomotor',
+			name: 'piertotumlocomotor',
 			aliases: ['piertotum','plocomotor'],
 			group: 'spells',
 			memberName: 'piertotumlocomotor',
