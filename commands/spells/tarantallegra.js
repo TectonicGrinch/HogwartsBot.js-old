@@ -14,6 +14,7 @@ constructor(client) {
 async run(message, args) {
     var tarantallegraRoles = [
         'Dev',
+        'Bot Dev',
         'Moderator',
         'Helper'
     ]

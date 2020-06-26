@@ -14,6 +14,7 @@ run(message) {
 	
 	var snapeobviouslyRoles = [
         'Dev',
+        'Bot Dev',
         'Yr5',
         'Yr6',
         'Yr7'

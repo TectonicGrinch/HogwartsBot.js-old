@@ -16,7 +16,8 @@ module.exports = class morsmordre extends commando.Command {
 	}
 async run(message) {
 	var morsmordreRoles = [
-        'Dev',
+		'Dev',
+		'Bot Dev',
         'Renowned Wizard',
         'Pheonix',
         'Moderator'

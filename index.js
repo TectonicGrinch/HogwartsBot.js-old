@@ -9,12 +9,12 @@ const Discord = require('discord.js.old');
  
 
 const client = new commando.Client({
-	owner: 'process.env.ownerId',
+	owner: '184191493919997952',
 	commandPrefix: '>',
-	invite: 'https://discord.gg/YB8fmw'
+	invite: 'https://discord.gg/YB8fmwe'
 });
 
-client.login( 'process.env.TOKEN' ).token;
+client.login( 'NzA3NjQ0NDA4MDM1NTQxMTM1.Xrg0rg.nK_gmW5vfVyvCDr0NE3AZCxCC58' ).token;
 const fs = require('fs');
 const images = require("./images.js");
 client
@@ -230,6 +230,7 @@ client
      return message.reply('Mind your language, WARNING')
   }
 });
+process.memoryUsage().heapUsed / 1024 / 1024;
 /*client.on('messageReactionAdd', async(reaction, user) => {
 	let testRole = message.guild.roles.cache.find(role => role.name === 'test1');
 

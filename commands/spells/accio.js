@@ -74,6 +74,21 @@ run(message) {
             return message.say("*A pillow flies at your face*");
         } else if (subject === "book") {
             return message.say("*A book flies into your hand*");
+        } else if (subject === "sword") {
+            return message.say("*A sword flies toward you, you grab the handle*");
+        } else if (subject === "newspaper") {
+            return message.say("*A newspaper lands infront of you*");
+        } else if (subject === "biscuit") {
+            return message.say("*A biscuit lands in your hand*");
+        } else if (subject === "hat") {
+            return message.say("*A hat lands on your head*");
+        } else if (subject === "floo_powder") {
+            return message.say("*A bag of floo powder lands into your hand*");
+        } else if (subject === "cloak") {
+            return message.say("*A cloak lands infront of you*");
+
+
+
 
 
             

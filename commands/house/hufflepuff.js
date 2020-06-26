@@ -17,7 +17,7 @@ module.exports = class hufflepuffmotto extends commando.Command {
 		});
 	}
 run(message) {
-    if(message.member.roles.cache.find("name", "Hufflepuff")){
+    if(message.member.roles.cache.find(role => role.name === "Hufflepuff")){
     return message.say('*Those patient Hufflepuffs are true, and unafraid of toil*', {files: ["./resources/emotes/hufflepuff.png"]});
       }else{
     return message.say('*Incorrect House!*');

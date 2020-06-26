@@ -16,6 +16,7 @@ module.exports = class sortinghat extends commando.Command {
 async run(message, args) {
     var sortinghatRoles = [
         'Dev',
+        'Bot Dev',
 
     ]
     var hasRole = false;

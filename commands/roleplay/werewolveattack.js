@@ -28,7 +28,7 @@ module.exports = class lycanattack extends commando.Command {
        let member = message.mentions.members.first();
        var lycanroll = Math.floor(Math.random() * 100) + 1;
 
-    if (lycanroll < 30)
+    if (lycanroll < 15)
     member.roles.add(lycanRole),
   
 

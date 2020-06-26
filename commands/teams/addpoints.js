@@ -43,7 +43,7 @@ return message.channel.send('you must be an administrator to use this command');
         {
             //channel set -- update the channel name to display points for the team
             let guild = message.guild;
-            let channel = guild.channels.get(channel_id);
+            let channel = guild.channels.cache.get(channel_id);
             if(channel)
             {
                 channel.setName(`${teamname} - ${new_points} points`);

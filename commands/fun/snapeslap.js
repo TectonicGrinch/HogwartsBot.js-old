@@ -16,7 +16,8 @@ module.exports = class snapeslap extends commando.Command {
 	}
 run(message) {
 	var snapeslapRoles = [
-        'Dev',
+		'Dev',
+		'Bot Dev',
         'Yr7'
     ]
     var hasRole = false;

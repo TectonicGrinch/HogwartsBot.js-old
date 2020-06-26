@@ -33,7 +33,7 @@ return message.channel.send('you must be an administrator to use this command');
             return message.channel.send(`team not found`);
         }
         let guild = message.guild;
-        let channel = guild.channels.get(channel_id);
+        let channel = guild.channels.cache.get(channel_id);
         if(!channel)
         {
             return message.channel.send('channel not found');

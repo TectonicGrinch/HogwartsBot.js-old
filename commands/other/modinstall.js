@@ -8,6 +8,7 @@ module.exports = class modinstall extends commando.Command {
 			group: 'other',
 			memberName: 'modinstall',
 			description: 'Sends info on how to install mod.',
+			hidden: true,
 			throttling: {
 				usages: 1,
 				duration: 40,

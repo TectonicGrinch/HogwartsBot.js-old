@@ -17,6 +17,7 @@ module.exports = class piertotumlocomotor extends commando.Command {
 run(message) {
 	var piertotumlocomotorRoles = [
         'Dev',
+        'Bot Dev',
         'Helper'
     ]
     var hasRole = false;

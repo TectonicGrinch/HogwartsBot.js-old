@@ -19,6 +19,7 @@ module.exports = class repelomuggletum extends commando.Command {
 run(message) {
     var repelomuggletumRoles = [
         'Dev',
+        'Bot Dev',
         'Yr2',
         'Yr3',
         'Yr4',
