@@ -34,11 +34,14 @@ module.exports = class hiddentext extends commando.Command {
     let say = (args.slice(1).join(' '))
     if(!channelname)
     {
-      return message.say('Please provide a channel name.')
+       message.say('Please provide a channel name.')
+       message.delete(30)
+
     }
     if(!say)
     {
-      return message.say('Please provide your text.')
+      message.say('Please provide your text.')
+      message.delete(30)
     }
 
 //should your message delete after the bot reads it? delete message.delete() if you don't want it to delete your message
