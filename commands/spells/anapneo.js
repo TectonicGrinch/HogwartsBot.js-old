@@ -36,8 +36,7 @@ async run(message) {
     if(hasRole === true){
 		message.reply(`*Uses Anapneo to clear ${mention ||'their own' } airways.*`)
         //code when has role
-    }
-    else{
+    }else{
 		//code when has no role
 		message.reply('Incorrect Year')
 

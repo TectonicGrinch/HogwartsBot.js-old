@@ -18,12 +18,12 @@ module.exports = class viridiancommand extends commando.Command {
 run(message) {
     //member id 184191493919997952
 	if (message.author.id == "184191493919997952") {
-		message.react('✅')
- message.say('You are indeed ViridianZe welcome home Master. . .', {files: ['./resources/gifs/welcomemaster.gif']})
+		message.react('<:neville:716406337411481641>')
+ message.say("***Father. . .*** It's really you...", {files: ['./resources/gifs/father.gif']})
 
 }else{
 	message.react('❌')
-return message.say('Denied! you are not my Master...')
+return message.say('Denied! you are not my Father!', {files: ['./resources/gifs/notfather.gif']})
 
 
 

@@ -28,12 +28,12 @@ async run(message) {
     })
 
     if(hasRole === true){
-		message.say("*You mark the sky with The Dark Lord's presence.*", {files: ['./resources/gifs/morsmordre.gif']})
+		message.reply("*Marks the sky with The Dark Lord's presence.*", {files: ['./resources/gifs/morsmordre.gif']})
         //code when has role
     }
     else{
 		//code when has no role
-		message.say('You are not powerful enough for this spell.')
+		message.reply('You are not powerful enough for this spell.')
 
     }
 

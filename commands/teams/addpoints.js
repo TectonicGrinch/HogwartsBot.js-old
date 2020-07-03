@@ -67,8 +67,7 @@ class addpoints extends commando.Command {
       
     
         
-        }
-        else{
+        }else{
             //code when has no role
             message.reply('Incorrect Role')
     

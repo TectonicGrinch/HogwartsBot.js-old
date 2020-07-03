@@ -42,7 +42,7 @@ run(message) {
 		} else if (subject === "lake") {
 			return message.say("*you shoot aguamenti at a lake and nothing seems to happen*");
 		} else if (subject === "discord") {
-		    if(message.member.roles.find("name", "Dev")){
+		    if(message.member.roles.cache.find(role => role.name === "Dev")){
 			return message.say("*you shoot aguamenti at the discord chat* **R.I.P**\n **WHY HAVE YOU FORSAKEN US!!!**", {files: ["./resources/gifs/tsunami.gif"]})
 			}else{
 				return message.say("**This spell is too powerful for you.**")
@@ -54,7 +54,7 @@ run(message) {
 		} else if (subject === "bath") {
 			return message.say("*You fill a bath full of water with aguamenti* :bathtub: ")
 		} else if (subject === "earth") {
-		    if(message.member.roles.find("name", "Dev")){
+		    if(message.member.roles.cache.find(role => role.name === "Dev")){
 			return message.say("*you shoot aguamenti at the earth*\n **WHAT IS WRONG WITH YOU** \n*screaming intensifies*", {files: ["./resources/gifs/aguamentiearth.gif"]})
 			}else{
 			return message.say("**This spell is too powerful for you.**")
