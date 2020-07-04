@@ -11,20 +11,31 @@ constructor(client) {
      });
 }
 async run(message, args) {
+  let tailsCount = 0;
+  let headsCount = 0; 
     
-    var flip = Math.floor(Math.random() * 100) + 1;
+  var flip = Math.floor(Math.random() * 100) + 1;
+
  
-    if (flip > 51) {
- 
- 
- 
-    message.reply ("<:galleon:727038073678069811>*flips a coin and it lands on* **Heads**");
+    if (flip >= 51) {
+
+
+
+      headsCount++
+
+      message.reply (`<:galleon:727038073678069811>*flips a coin and it lands on* **Heads** ${headsCount} `);
+
 
      }   
     
 
  else if(flip <= 50) {
-    message.reply ("<:galleon:727038073678069811>*flips a coin and it lands on* **Tails**");
+
+
+
+    tailsCount++
+
+    message.reply (`<:galleon:727038073678069811>*flips a coin and it lands on* **Tails**${tailsCount} `);
 
 }
 }

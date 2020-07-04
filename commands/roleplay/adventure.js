@@ -15,14 +15,17 @@ module.exports = class adventure extends commando.Command {
 
     async run(message) {
 
-        message.reply("yes or no");
-        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        message.reply(`You wake up in your room and jump up to peer out your window, You wonder what you are going to do when you get to Hogwarts the following evening. You start to wonder what classes you would have to take and the friends you will make along the way. You get dressed for the day and hear a *knocking* at the door it is your Mother. ${message.author} 'breakfast is ready are you coming down?' \n **yes** or **no**`);
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
         console.log(collector)
         collector.on('collect', message => {
             if (message.content == "yes") {
-                message.channel.send("you chose yes");
+                message.reply("**Yes** I'm coming down.");
+                message.channel.send('You head down stairs for breakfast. on the table you see Bacon and eggs')
+
             } else if (message.content == "no") {
-                message.channel.send("you choose no");
+                message.reply("**No** im not very hungry.");
+                message.channel.send("you decide to stay in your room and continue to pack for Hogwarts.");
             }
         })
 
