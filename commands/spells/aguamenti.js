@@ -1,5 +1,5 @@
 const commando = require ('discord.js-commando')
-const {MessageMentions} = require("discord.js");
+const {MessageMentions, Message} = require("discord.js");
 
 
 module.exports = class aguamenti extends commando.Command {
@@ -21,14 +21,28 @@ module.exports = class aguamenti extends commando.Command {
 run(message) {
 		const args = message.content.split(" ");
 		args.shift();
-		var mention = message.mentions.users.first()
+		//const {MessageMentions} = require("discord.js");
+		const mention = message.mentions.users.first()
 		const subject = args[0];
-		const regex = /<@&(\d{17,19})>/g;
+		const matches = mention.match(/^<@!?(\d+)>$/);
+		function getUserFromMention(mention) {
+			// The id is the first and only match found by the RegEx.
+			const matches = mention.match(/^<@!?(\d+)>$/);
 		
+			// If supplied variable was not a mention, matches will be null instead of an array.
+			if (!matches) return;
+			message.say('hi')
+		
+			// However the first element in the matches array will be the entire mention, not just the ID,
+			// so use index 1.
+			const id = matches[1];
+		
+			return client.users.cache.get(id);
+		}
 		if (!subject) {
 			return message.say(`*you wand projects a stream of water*`)
-		} else if(regex.test(subject)) {
-			return message.say(`*Your wand projects a stream of water at ${MessageMentions} and they are now soaked*`)
+		} else if(subject === 'wd') {
+			return message.say(`*Your wand projects a stream of water at ${mention} and they are now soaked*`)
         } else if (subject === "cup") {
 			return message.say("*you fill a cup full of water with aguamenti.* :cup_with_straw: ");
 		} else if (subject === "bowl") {

@@ -21,7 +21,7 @@ const currency = new Discord.Collection();
 
 const client = new commando.Client({
 	owner: '184191493919997952',
-	commandPrefix: '<',
+	commandPrefix: '-',
 	invite: 'https://discord.gg/YB8fmwe'
 });
 
